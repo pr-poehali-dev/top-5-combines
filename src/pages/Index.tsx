@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 
@@ -7,229 +7,218 @@ const combines = [
   {
     id: 1,
     name: "John Deere S790",
-    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/78f01cda-a7ac-4ed5-8a86-d330de564a63.jpg",
-    price: "24 500 000 ₽",
-    power: "449 л.с.",
-    capacity: "14 500 л",
+    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/e632b295-ab22-4144-9a1d-0368a3d01e40.jpg",
+    price: "18 500 000 ₽",
+    power: "473 л.с.",
+    capacity: "42 000 л/час",
+    tank: "14 100 л",
     width: "10.7 м",
-    productivity: "до 60 т/ч",
-    country: "США"
+    featured: true,
   },
   {
     id: 2,
     name: "Case IH Axial-Flow 9250",
-    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/cf53d5b4-c39c-4eb9-8510-1bf684e51122.jpg",
-    price: "26 800 000 ₽",
+    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/c72b3968-44e1-4917-b14f-63dc5e848a10.jpg",
+    price: "17 800 000 ₽",
     power: "543 л.с.",
-    capacity: "16 400 л",
-    width: "13.7 м",
-    productivity: "до 75 т/ч",
-    country: "США"
+    capacity: "40 500 л/час",
+    tank: "14 500 л",
+    width: "12.2 м",
+    featured: false,
   },
   {
     id: 3,
-    name: "CLAAS LEXION 8900",
-    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/e8895140-b011-4d76-97a5-8f0ff527a68c.jpg",
-    price: "28 300 000 ₽",
-    power: "585 л.с.",
-    capacity: "18 000 л",
-    width: "13.8 м",
-    productivity: "до 80 т/ч",
-    country: "Германия"
+    name: "Fendt IDEAL 10T",
+    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/b1221507-90c7-45e3-8cea-814a42ea8dba.jpg",
+    price: "19 200 000 ₽",
+    power: "517 л.с.",
+    capacity: "43 000 л/час",
+    tank: "13 800 л",
+    width: "10.8 м",
+    featured: false,
   },
   {
     id: 4,
     name: "New Holland CR11.90",
-    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/3d9cb780-5d57-473f-9b19-8fea4d8d2d3a.jpg",
-    price: "25 900 000 ₽",
+    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/7873dc6e-c2a8-4e3a-8c55-fe099c04910b.jpg",
+    price: "18 900 000 ₽",
     power: "653 л.с.",
-    capacity: "17 100 л",
+    capacity: "44 000 л/час",
+    tank: "15 100 л",
     width: "13.7 м",
-    productivity: "до 82 т/ч",
-    country: "США"
+    featured: true,
   },
   {
     id: 5,
-    name: "Massey Ferguson IDEAL 10T",
-    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/23c986c6-e0c4-431c-9629-b414fdd2809a.jpg",
-    price: "23 700 000 ₽",
-    power: "647 л.с.",
-    capacity: "17 100 л",
-    width: "13.7 м",
-    productivity: "до 78 т/ч",
-    country: "США"
-  }
+    name: "Claas Lexion 8900",
+    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/a4f8f0ed-468a-4d68-8435-98a27e3ac511.jpg",
+    price: "20 500 000 ₽",
+    power: "790 л.с.",
+    capacity: "45 000 л/час",
+    tank: "18 000 л",
+    width: "12.0 м",
+    featured: true,
+  },
 ];
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 pointer-events-none" />
-      
-      <div className="relative">
-        <header className="border-b border-border/50 backdrop-blur-sm bg-background/80 sticky top-0 z-50">
-          <div className="container mx-auto px-4 py-6">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                  <Icon name="Truck" size={24} className="text-background" />
-                </div>
-                <div>
-                  <h1 className="text-2xl font-bold text-foreground">ТОП-5 Комбайнов</h1>
-                  <p className="text-sm text-muted-foreground">Крупнейшие машины мира</p>
-                </div>
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted">
+      <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="bg-primary p-2 rounded-lg">
+                <Icon name="Tractor" size={32} className="text-primary-foreground" />
               </div>
-              <Button variant="outline" className="gap-2">
-                <Icon name="Phone" size={18} />
-                Консультация
+              <div>
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  ТОП-5 КОМБАЙНОВ
+                </h1>
+                <p className="text-sm text-muted-foreground">Крупнейшие агрегаты мира</p>
+              </div>
+            </div>
+            <Button variant="default" size="lg" className="gap-2">
+              <Icon name="Phone" size={18} />
+              Связаться с нами
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-4 py-12">
+        <div className="text-center mb-12">
+          <Badge variant="secondary" className="mb-4 text-sm px-4 py-2">
+            <Icon name="TrendingUp" size={16} className="mr-2" />
+            Каталог 2025
+          </Badge>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            Самые мощные комбайны планеты
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Передовые технологии уборки урожая. Максимальная производительность и надежность для крупных агропредприятий
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          {combines.map((combine) => (
+            <Card key={combine.id} className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/50 group">
+              <div className="relative overflow-hidden">
+                {combine.featured && (
+                  <Badge className="absolute top-4 right-4 z-10 bg-accent text-accent-foreground border-0">
+                    <Icon name="Star" size={14} className="mr-1" />
+                    ХИТ
+                  </Badge>
+                )}
+                <img
+                  src={combine.image}
+                  alt={combine.name}
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+
+              <CardHeader>
+                <CardTitle className="text-2xl">{combine.name}</CardTitle>
+                <CardDescription className="flex items-center gap-2 text-3xl font-bold text-primary mt-2">
+                  <Icon name="Tag" size={24} />
+                  {combine.price}
+                </CardDescription>
+              </CardHeader>
+
+              <CardContent className="space-y-3">
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="flex items-center gap-2 bg-muted p-3 rounded-lg">
+                    <Icon name="Zap" size={20} className="text-primary" />
+                    <div>
+                      <p className="text-xs text-muted-foreground">Мощность</p>
+                      <p className="font-semibold">{combine.power}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 bg-muted p-3 rounded-lg">
+                    <Icon name="Gauge" size={20} className="text-accent" />
+                    <div>
+                      <p className="text-xs text-muted-foreground">Производ.</p>
+                      <p className="font-semibold">{combine.capacity}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 bg-muted p-3 rounded-lg">
+                    <Icon name="Droplet" size={20} className="text-primary" />
+                    <div>
+                      <p className="text-xs text-muted-foreground">Бункер</p>
+                      <p className="font-semibold">{combine.tank}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 bg-muted p-3 rounded-lg">
+                    <Icon name="Ruler" size={20} className="text-accent" />
+                    <div>
+                      <p className="text-xs text-muted-foreground">Жатка</p>
+                      <p className="font-semibold">{combine.width}</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+
+              <CardFooter className="flex gap-2">
+                <Button className="flex-1 gap-2 h-12 text-base" size="lg">
+                  <Icon name="ShoppingCart" size={20} />
+                  Оформить заказ
+                </Button>
+                <Button variant="outline" size="lg" className="h-12 px-4">
+                  <Icon name="Info" size={20} />
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-16 bg-gradient-to-r from-primary to-accent p-8 rounded-2xl text-center">
+          <h3 className="text-3xl font-bold text-white mb-4">Нужна консультация?</h3>
+          <p className="text-white/90 mb-6 text-lg">
+            Наши специалисты помогут подобрать оптимальную технику для вашего предприятия
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Button variant="secondary" size="lg" className="gap-2 h-12 px-8">
+              <Icon name="Phone" size={20} />
+              Позвонить сейчас
+            </Button>
+            <Button variant="outline" size="lg" className="gap-2 h-12 px-8 bg-white hover:bg-white/90">
+              <Icon name="Mail" size={20} />
+              Написать email
+            </Button>
+          </div>
+        </div>
+      </main>
+
+      <footer className="border-t mt-20 bg-card/50 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex items-center gap-3">
+              <div className="bg-primary p-2 rounded-lg">
+                <Icon name="Tractor" size={24} className="text-primary-foreground" />
+              </div>
+              <div>
+                <p className="font-semibold">ТОП-5 КОМБАЙНОВ</p>
+                <p className="text-sm text-muted-foreground">© 2025 Все права защищены</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <Button variant="ghost" size="icon">
+                <Icon name="Phone" size={20} />
+              </Button>
+              <Button variant="ghost" size="icon">
+                <Icon name="Mail" size={20} />
+              </Button>
+              <Button variant="ghost" size="icon">
+                <Icon name="MapPin" size={20} />
               </Button>
             </div>
           </div>
-        </header>
-
-        <main className="container mx-auto px-4 py-12">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-primary/20 text-primary border-primary/30">
-              Премиум техника
-            </Badge>
-            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-              Самые мощные комбайны
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Профессиональная техника для масштабных аграрных предприятий
-            </p>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {combines.map((combine) => (
-              <Card 
-                key={combine.id} 
-                className="group overflow-hidden border-border/50 bg-card hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2"
-              >
-                <div className="relative overflow-hidden aspect-[4/3]">
-                  <img 
-                    src={combine.image} 
-                    alt={combine.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60" />
-                  <Badge className="absolute top-4 right-4 bg-secondary text-secondary-foreground">
-                    #{combine.id}
-                  </Badge>
-                </div>
-                
-                <CardContent className="p-6 space-y-4">
-                  <div>
-                    <h3 className="text-xl font-bold mb-1 text-foreground">{combine.name}</h3>
-                    <p className="text-sm text-muted-foreground flex items-center gap-1">
-                      <Icon name="MapPin" size={14} />
-                      {combine.country}
-                    </p>
-                  </div>
-
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground flex items-center gap-2">
-                        <Icon name="Zap" size={16} className="text-primary" />
-                        Мощность
-                      </span>
-                      <span className="font-semibold text-foreground">{combine.power}</span>
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground flex items-center gap-2">
-                        <Icon name="Fuel" size={16} className="text-secondary" />
-                        Бункер
-                      </span>
-                      <span className="font-semibold text-foreground">{combine.capacity}</span>
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground flex items-center gap-2">
-                        <Icon name="Maximize2" size={16} className="text-primary" />
-                        Жатка
-                      </span>
-                      <span className="font-semibold text-foreground">{combine.width}</span>
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground flex items-center gap-2">
-                        <Icon name="TrendingUp" size={16} className="text-secondary" />
-                        Производ.
-                      </span>
-                      <span className="font-semibold text-foreground">{combine.productivity}</span>
-                    </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-border/50">
-                    <div className="text-3xl font-bold text-primary mb-4">
-                      {combine.price}
-                    </div>
-                    <div className="space-y-2">
-                      <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group">
-                        Купить
-                        <Icon name="ShoppingCart" size={18} className="ml-2 transition-transform group-hover:scale-110" />
-                      </Button>
-                      <Button variant="outline" className="w-full border-secondary/50 hover:bg-secondary/10 hover:border-secondary text-foreground">
-                        Подробнее
-                        <Icon name="ArrowRight" size={18} className="ml-2" />
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="mt-20 grid md:grid-cols-3 gap-8">
-            <Card className="border-border/50 bg-card/50 backdrop-blur">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary to-primary/50 flex items-center justify-center">
-                  <Icon name="Shield" size={32} className="text-background" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-foreground">Гарантия качества</h3>
-                <p className="text-muted-foreground">Официальная гарантия производителя до 5 лет</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/50 bg-card/50 backdrop-blur">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-secondary to-secondary/50 flex items-center justify-center">
-                  <Icon name="Wrench" size={32} className="text-background" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-foreground">Сервисное обслуживание</h3>
-                <p className="text-muted-foreground">Техподдержка 24/7 по всей России</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/50 bg-card/50 backdrop-blur">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                  <Icon name="CreditCard" size={32} className="text-background" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-foreground">Выгодный лизинг</h3>
-                <p className="text-muted-foreground">Гибкие условия финансирования</p>
-              </CardContent>
-            </Card>
-          </div>
-        </main>
-
-        <footer className="border-t border-border/50 mt-20 py-8 bg-card/30 backdrop-blur">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <p className="text-muted-foreground">© 2025 ТОП-5 Комбайнов. Все права защищены.</p>
-              <div className="flex gap-4">
-                <Button variant="ghost" size="icon">
-                  <Icon name="Mail" size={20} />
-                </Button>
-                <Button variant="ghost" size="icon">
-                  <Icon name="Phone" size={20} />
-                </Button>
-                <Button variant="ghost" size="icon">
-                  <Icon name="MapPin" size={20} />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
   );
 };
