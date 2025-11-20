@@ -1,103 +1,86 @@
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 
 const combines = [
   {
     id: 1,
-    name: "John Deere X9 1100",
-    manufacturer: "John Deere",
-    price: "725 000 $",
-    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/48ae9a0f-74c6-4a5f-8760-a86629919ae5.jpg",
-    specs: {
-      power: "690 л.с.",
-      tank: "16 200 л",
-      width: "13.7 м",
-      productivity: "72 т/ч"
-    },
-    features: ["Автопилот", "Система ночного видения", "AI управление"]
+    name: "John Deere S790",
+    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/78f01cda-a7ac-4ed5-8a86-d330de564a63.jpg",
+    price: "24 500 000 ₽",
+    power: "449 л.с.",
+    capacity: "14 500 л",
+    width: "10.7 м",
+    productivity: "до 60 т/ч",
+    country: "США"
   },
   {
     id: 2,
-    name: "CASE IH Axial-Flow 9250",
-    manufacturer: "CASE IH",
-    price: "685 000 $",
-    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/50265597-4978-452b-8223-792de3befb32.jpg",
-    specs: {
-      power: "652 л.с.",
-      tank: "15 900 л",
-      width: "13.7 м",
-      productivity: "68 т/ч"
-    },
-    features: ["CrossTrack", "Axial-Flow ротор", "Автоматическая настройка"]
+    name: "Case IH Axial-Flow 9250",
+    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/cf53d5b4-c39c-4eb9-8510-1bf684e51122.jpg",
+    price: "26 800 000 ₽",
+    power: "543 л.с.",
+    capacity: "16 400 л",
+    width: "13.7 м",
+    productivity: "до 75 т/ч",
+    country: "США"
   },
   {
     id: 3,
-    name: "Fendt IDEAL 10T",
-    manufacturer: "Fendt",
-    price: "695 000 $",
-    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/a8767bdc-0ae9-46a7-aaf2-4679e2ce0bce.jpg",
-    specs: {
-      power: "653 л.с.",
-      tank: "17 100 л",
-      width: "13.8 м",
-      productivity: "70 т/ч"
-    },
-    features: ["IDEALdrive", "IDEALharvest", "Цифровая диагностика"]
+    name: "CLAAS LEXION 8900",
+    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/e8895140-b011-4d76-97a5-8f0ff527a68c.jpg",
+    price: "28 300 000 ₽",
+    power: "585 л.с.",
+    capacity: "18 000 л",
+    width: "13.8 м",
+    productivity: "до 80 т/ч",
+    country: "Германия"
   },
   {
     id: 4,
     name: "New Holland CR11.90",
-    manufacturer: "New Holland",
-    price: "705 000 $",
-    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/3f7bb6d4-1172-47b3-aaa6-93d26b95206e.jpg",
-    specs: {
-      power: "653 л.с.",
-      tank: "17 800 л",
-      width: "13.7 м",
-      productivity: "71 т/ч"
-    },
-    features: ["IntelliSense", "Twin Rotor", "Precision Land Management"]
+    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/3d9cb780-5d57-473f-9b19-8fea4d8d2d3a.jpg",
+    price: "25 900 000 ₽",
+    power: "653 л.с.",
+    capacity: "17 100 л",
+    width: "13.7 м",
+    productivity: "до 82 т/ч",
+    country: "США"
   },
   {
     id: 5,
-    name: "Claas Lexion 8900",
-    manufacturer: "Claas",
-    price: "715 000 $",
-    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/a01d60e5-a292-40e0-901e-83bfa4d72be1.jpg",
-    specs: {
-      power: "653 л.с.",
-      tank: "18 000 л",
-      width: "13.8 м",
-      productivity: "72 т/ч"
-    },
-    features: ["CEMOS Automatic", "Terra Trac", "CEBIS система"]
+    name: "Massey Ferguson IDEAL 10T",
+    image: "https://cdn.poehali.dev/projects/65113b2e-5794-4364-a81c-d4de4bf19833/files/23c986c6-e0c4-431c-9629-b414fdd2809a.jpg",
+    price: "23 700 000 ₽",
+    power: "647 л.с.",
+    capacity: "17 100 л",
+    width: "13.7 м",
+    productivity: "до 78 т/ч",
+    country: "США"
   }
 ];
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]" />
+    <div className="min-h-screen bg-background">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 pointer-events-none" />
       
       <div className="relative">
-        <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+        <header className="border-b border-border/50 backdrop-blur-sm bg-background/80 sticky top-0 z-50">
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                  <Icon name="Tractor" className="text-white" size={28} />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                  <Icon name="Truck" size={24} className="text-background" />
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                    ТОП-5 Комбайнов
-                  </h1>
-                  <p className="text-sm text-muted-foreground">Мировые лидеры агротехники</p>
+                  <h1 className="text-2xl font-bold text-foreground">ТОП-5 Комбайнов</h1>
+                  <p className="text-sm text-muted-foreground">Крупнейшие машины мира</p>
                 </div>
               </div>
-              <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity">
-                <Icon name="Phone" size={18} className="mr-2" />
+              <Button variant="outline" className="gap-2">
+                <Icon name="Phone" size={18} />
                 Консультация
               </Button>
             </div>
@@ -105,135 +88,144 @@ const Index = () => {
         </header>
 
         <main className="container mx-auto px-4 py-12">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-              <Icon name="Award" size={14} className="mr-1" />
-              Лучшие модели 2025
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-primary/20 text-primary border-primary/30">
+              Премиум техника
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
-              Крупнейшие комбайны мира
+            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+              Самые мощные комбайны
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Высокопроизводительная техника для промышленного земледелия с передовыми технологиями
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Профессиональная техника для масштабных аграрных предприятий
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {combines.map((combine, index) => (
-              <Card key={combine.id} className="overflow-hidden group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/50 bg-card">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {combines.map((combine) => (
+              <Card 
+                key={combine.id} 
+                className="group overflow-hidden border-border/50 bg-card hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2"
+              >
                 <div className="relative overflow-hidden aspect-[4/3]">
                   <img 
                     src={combine.image} 
                     alt={combine.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-gradient-to-r from-primary to-accent text-white border-0 text-lg px-3 py-1">
-                      #{index + 1}
-                    </Badge>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60" />
+                  <Badge className="absolute top-4 right-4 bg-secondary text-secondary-foreground">
+                    #{combine.id}
+                  </Badge>
                 </div>
                 
-                <div className="p-6">
-                  <div className="mb-4">
-                    <p className="text-sm text-muted-foreground mb-1">{combine.manufacturer}</p>
-                    <h3 className="text-2xl font-bold mb-2">{combine.name}</h3>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                        {combine.price}
-                      </span>
-                    </div>
+                <CardContent className="p-6 space-y-4">
+                  <div>
+                    <h3 className="text-xl font-bold mb-1 text-foreground">{combine.name}</h3>
+                    <p className="text-sm text-muted-foreground flex items-center gap-1">
+                      <Icon name="MapPin" size={14} />
+                      {combine.country}
+                    </p>
                   </div>
 
-                  <div className="space-y-3 mb-4">
-                    <div className="flex items-center justify-between py-2 border-b border-border">
-                      <div className="flex items-center gap-2 text-muted-foreground">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground flex items-center gap-2">
                         <Icon name="Zap" size={16} className="text-primary" />
-                        <span className="text-sm">Мощность</span>
-                      </div>
-                      <span className="font-semibold">{combine.specs.power}</span>
+                        Мощность
+                      </span>
+                      <span className="font-semibold text-foreground">{combine.power}</span>
                     </div>
-                    <div className="flex items-center justify-between py-2 border-b border-border">
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <Icon name="Container" size={16} className="text-accent" />
-                        <span className="text-sm">Бункер</span>
-                      </div>
-                      <span className="font-semibold">{combine.specs.tank}</span>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground flex items-center gap-2">
+                        <Icon name="Fuel" size={16} className="text-secondary" />
+                        Бункер
+                      </span>
+                      <span className="font-semibold text-foreground">{combine.capacity}</span>
                     </div>
-                    <div className="flex items-center justify-between py-2 border-b border-border">
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <Icon name="Ruler" size={16} className="text-primary" />
-                        <span className="text-sm">Ширина жатки</span>
-                      </div>
-                      <span className="font-semibold">{combine.specs.width}</span>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground flex items-center gap-2">
+                        <Icon name="Maximize2" size={16} className="text-primary" />
+                        Жатка
+                      </span>
+                      <span className="font-semibold text-foreground">{combine.width}</span>
                     </div>
-                    <div className="flex items-center justify-between py-2">
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <Icon name="Gauge" size={16} className="text-accent" />
-                        <span className="text-sm">Производительность</span>
-                      </div>
-                      <span className="font-semibold">{combine.specs.productivity}</span>
-                    </div>
-                  </div>
-
-                  <div className="mb-4">
-                    <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wide">Особенности</p>
-                    <div className="flex flex-wrap gap-2">
-                      {combine.features.map((feature, idx) => (
-                        <Badge key={idx} variant="secondary" className="text-xs">
-                          {feature}
-                        </Badge>
-                      ))}
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground flex items-center gap-2">
+                        <Icon name="TrendingUp" size={16} className="text-secondary" />
+                        Производ.
+                      </span>
+                      <span className="font-semibold text-foreground">{combine.productivity}</span>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2">
-                    <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90">
-                      <Icon name="ShoppingCart" size={16} className="mr-2" />
-                      Заказать
-                    </Button>
-                    <Button variant="outline" className="w-full border-2">
-                      <Icon name="Info" size={16} className="mr-2" />
-                      Подробнее
-                    </Button>
+                  <div className="pt-4 border-t border-border/50">
+                    <div className="text-3xl font-bold text-primary mb-4">
+                      {combine.price}
+                    </div>
+                    <div className="space-y-2">
+                      <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group">
+                        Купить
+                        <Icon name="ShoppingCart" size={18} className="ml-2 transition-transform group-hover:scale-110" />
+                      </Button>
+                      <Button variant="outline" className="w-full border-secondary/50 hover:bg-secondary/10 hover:border-secondary text-foreground">
+                        Подробнее
+                        <Icon name="ArrowRight" size={18} className="ml-2" />
+                      </Button>
+                    </div>
                   </div>
-                </div>
+                </CardContent>
               </Card>
             ))}
           </div>
 
-          <div className="bg-gradient-to-br from-secondary via-secondary/95 to-accent/20 rounded-2xl p-8 md:p-12 text-white">
-            <div className="max-w-3xl mx-auto text-center">
-              <Icon name="Headphones" size={48} className="mx-auto mb-4 text-primary" />
-              <h3 className="text-3xl font-bold mb-4">Нужна консультация?</h3>
-              <p className="text-white/80 mb-6 text-lg">
-                Наши специалисты помогут подобрать оптимальную модель для ваших задач и расскажут о возможностях лизинга
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
-                  <Icon name="Phone" size={18} className="mr-2" />
-                  Позвонить сейчас
-                </Button>
-                <Button size="lg" variant="outline" className="bg-white text-secondary hover:bg-white/90 border-0">
-                  <Icon name="Mail" size={18} className="mr-2" />
-                  Написать письмо
-                </Button>
-              </div>
-            </div>
+          <div className="mt-20 grid md:grid-cols-3 gap-8">
+            <Card className="border-border/50 bg-card/50 backdrop-blur">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary to-primary/50 flex items-center justify-center">
+                  <Icon name="Shield" size={32} className="text-background" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-foreground">Гарантия качества</h3>
+                <p className="text-muted-foreground">Официальная гарантия производителя до 5 лет</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border/50 bg-card/50 backdrop-blur">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-secondary to-secondary/50 flex items-center justify-center">
+                  <Icon name="Wrench" size={32} className="text-background" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-foreground">Сервисное обслуживание</h3>
+                <p className="text-muted-foreground">Техподдержка 24/7 по всей России</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border/50 bg-card/50 backdrop-blur">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                  <Icon name="CreditCard" size={32} className="text-background" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-foreground">Выгодный лизинг</h3>
+                <p className="text-muted-foreground">Гибкие условия финансирования</p>
+              </CardContent>
+            </Card>
           </div>
         </main>
 
-        <footer className="border-t bg-card/50 backdrop-blur-sm mt-12">
-          <div className="container mx-auto px-4 py-8">
+        <footer className="border-t border-border/50 mt-20 py-8 bg-card/30 backdrop-blur">
+          <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                  <Icon name="Tractor" className="text-white" size={22} />
-                </div>
-                <span className="font-semibold">ТОП-5 Комбайнов</span>
+              <p className="text-muted-foreground">© 2025 ТОП-5 Комбайнов. Все права защищены.</p>
+              <div className="flex gap-4">
+                <Button variant="ghost" size="icon">
+                  <Icon name="Mail" size={20} />
+                </Button>
+                <Button variant="ghost" size="icon">
+                  <Icon name="Phone" size={20} />
+                </Button>
+                <Button variant="ghost" size="icon">
+                  <Icon name="MapPin" size={20} />
+                </Button>
               </div>
-              <p className="text-sm text-muted-foreground">© 2025 Все права защищены</p>
             </div>
           </div>
         </footer>
